@@ -1,0 +1,16 @@
+VAR -> [a-zA-z]
+DIGIT -> 0|([1-9][0-9]*)
+ASSIGN_OPERATION -> =
+LOGIC_OPERATIONS -> >|<|==|>=|<=
+PL_MI_MU_DI -> (\\+|-|\\*|/)
+OPEN_BRACKET -> (
+CLOSE_BRACKET -> )
+OPEN_SQUARE -> [
+CLOSE_SQUARE ->]
+OPEN_BRACE -> {
+CLOSE_BRACE -> }
+SEMICOLON -> ;
+
+IF_KW -> if
+WHILE_KW -> while
+FOW_KW -> for
