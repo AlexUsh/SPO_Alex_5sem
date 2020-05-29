@@ -4,10 +4,14 @@
 
 **Компоненты**
 --------------------
-:white_check_mark: Лексер 
-:negative_squared_cross_mark: Парсер 
-:negative_squared_cross_mark: Стек-машина 
-:negative_squared_cross_mark: Структура данных ***Лист*** 
+:white_check_mark: Лексер
+
+:negative_squared_cross_mark: Парсер
+
+:negative_squared_cross_mark: Стек-машина
+
+:negative_squared_cross_mark: Структура данных ***Лист***
+
 :negative_squared_cross_mark: Структура данных ***Хеш-мan***
 
 Лексер выполняет проверку отдельных лексем. Результатом работы лексера является список токенов.
