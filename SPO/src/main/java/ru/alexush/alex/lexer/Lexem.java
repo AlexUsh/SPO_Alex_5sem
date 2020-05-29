@@ -4,21 +4,23 @@ import java.util.regex.Pattern;
 
 public enum Lexem {
 
-    VAR("[a-zA-z]+", 0),
-    DIGIT("0|([1-9][0-9]*)", 0),
-    ASSIGN_OP("=", 0),
-    PLUS_MINUS("\\+|\\-", 3),
-    MULT_DIV("\\*|\\/", 4),
-    LOGIC_OP(">|<|==|>=|<=", 2),
-    CONST_STRING("\".*\"", 0),
-    OPEN_PARANTH("\\(", 1),
-    CLOSE_PARANTH("\\)", 1),
-    OPEN_BRACKET("\\{", -1),
-    CLOSE_BRACKET("\\}", 1),
+    VAR("^[a-zA-z]\\s*$", 0),
+    DIGIT("^(0|([1-9][0-9]*))\\s*$", 0),
+    ASSIGN_OPERATION("^=\\s*$", 0),
+    LOGIC_OPERATIONS("^>|<|==|>=|<=\\s*$", 2),
+    PL_MI_MU_DI("^(\\+|-|\\*|/)\\s*$", 3),
+    OPEN_BRACKET("^\\(\\s*$", 1),
+    CLOSE_BRACKET("^\\)\\s*$", 1),
+    OPEN_SQUARE("^\\[\\s*$", 1),
+    CLOSE_SQUARE("^\\]\\s*$", 1),
+    OPEN_BRACE("^\\{\\s*$", -1),
+    CLOSE_BRACE("^\\}\\s*$", 1),
 
-    IF_KW("if", 5),
-    WHILE_KW("while", 5),
-    FOW_KW("for", 5);
+    SEMICOLON("^;\\s*$", 10),
+
+    IF_KW("^if\\s*$", 5),
+    WHILE_KW("^while\\s*$", 5),
+    FOW_KW("^for\\s*$", 5);
 
     private final Pattern pattern;
     private int priority;
