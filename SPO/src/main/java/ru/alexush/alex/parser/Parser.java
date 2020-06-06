@@ -28,27 +28,27 @@ public class Parser {
             expr();
         }
     }
-//-----------------------------------------------------------------(ветви)
+//-----------------------------------------------------------------
     private void expr() throws LangParseException, EofException {
         depths.push(0);
         try {
-            assignExpr();
+            complexExpr();
         } catch (LangParseException e){
             try{
                 back(depths.pop());
                 depths.push(0);
                 log_choice();
-            } catch (LangParseException ex){
+            } catch (LangParseException exc){
                 try {
                     back(depths.pop());
                     depths.push(0);
                     log_circle();
-                } catch (LangParseException exc) {
-                    //back(depths.pop());
+                } catch (LangParseException exl) {
+                    back(depths.pop());
                     throw new LangParseException(
                             e.getMessage() + " / "
-                                    + ex.getMessage() + " / "
-                                        + exc.getMessage()
+                                    + exc.getMessage() + " / "
+                                        + exl.getMessage()
                     );
                 }
             }
@@ -56,22 +56,15 @@ public class Parser {
         depths.pop();
     }
 //-----------------------------------------------------------------
-    private void assignExpr() throws LangParseException, EofException {
+    private void complexExpr() throws LangParseException, EofException {
         var();
         assignOp();
+        value();
+        op();
         value();
         semicolon();
     }
 //-----------------------------------------------------------------
-//    private void complexExpr() throws LangParseException, EofException {
-//        var();
-//        assignOp();
-//        value();
-//        op();
-//        value();
-//        semicolon();
-//    }
-//-----------------------------------------------------------------(значения)
     private void value() throws LangParseException, EofException {
         depths.push(0);
         try{
@@ -90,28 +83,28 @@ public class Parser {
         }
         depths.pop();
     }
-//-----------------------------------------------------------------(буквы)
+//-----------------------------------------------------------------
     private void var() throws LangParseException, EofException {
         match(getCurrentToken(), Lexem.VAR);
     }
-//-----------------------------------------------------------------(+-*/)
-//    private void op() throws LangParseException, EofException {
-//        match(getCurrentToken(), Lexem.PL_MI_MU_DI);
-//    }
-//-----------------------------------------------------------------(равно)
+//-----------------------------------------------------------------
     private void assignOp() throws LangParseException, EofException {
         match(getCurrentToken(), Lexem.ASSIGN_OPERATION);
     }
-//-----------------------------------------------------------------(числа)
+//-----------------------------------------------------------------
     private void digit() throws LangParseException, EofException {
         match(getCurrentToken(), Lexem.DIGIT);
     }
-//----------------------------------------------------------------(if)
+    //-------------------------------------------------------------
+    private void op() throws LangParseException, EofException {
+        match(getCurrentToken(), Lexem.PL_MI_MU_DI);
+    }
+//----------------------------------------------------------------
     private void log_choice() throws LangParseException, EofException {
         if_log();
         log_body();
     }
-//----------------------------------------------------------------(цикл while)
+//----------------------------------------------------------------
     private void log_circle() throws LangParseException, EofException {
         while_log();
         log_body();
