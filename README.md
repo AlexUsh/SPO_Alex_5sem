@@ -6,7 +6,7 @@
 --------------------
 :white_check_mark: Лексер
 
-:negative_squared_cross_mark: Парсер
+:white_check_mark: Парсер
 
 :negative_squared_cross_mark: Стек-машина
 
