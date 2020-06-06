@@ -1,8 +1,7 @@
-y = x;
-s = 2;
+r = w + 5;
 if(a < b){
-e = r;
+e = t * g;
 }
-while(a > b){
-q = w;
+while(a < b){
+q = c + q;
 }
