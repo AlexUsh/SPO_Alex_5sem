@@ -1,0 +1,8 @@
+y = x;
+s = 2;
+if(a < b){
+e = r;
+}
+while(a > b){
+q = w;
+}
