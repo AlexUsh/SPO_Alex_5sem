@@ -8,9 +8,9 @@
 
 :white_check_mark: Парсер
 
-:negative_squared_cross_mark: Стек-машина
+:white_check_mark: Стек-машина
 
-:negative_squared_cross_mark: Структура данных ***Лист***
+:white_check_mark: Структура данных ***Лист***
 
 :negative_squared_cross_mark: Структура данных ***Хеш-мan***
 
