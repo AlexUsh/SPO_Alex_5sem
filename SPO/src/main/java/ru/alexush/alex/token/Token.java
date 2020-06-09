@@ -22,9 +22,6 @@ public class Token {
 
     @Override
     public String toString() {
-        return "Token [" +
-                "lexem = " + lexem +
-                ", value = '" + value + '\'' +
-                ']';
+        return "Token [" + "lexem = " + lexem + ", value = '" + value + '\'' + ']';
     }
 }

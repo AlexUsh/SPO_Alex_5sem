@@ -2,12 +2,10 @@ package ru.alexush.alex.lexer;
 
 import ru.alexush.alex.token.Token;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 import java.util.regex.Matcher;
 
 public class Lexer {
-
     private final String rawInput;
 
     public Lexer(String rawInput) {
@@ -18,13 +16,13 @@ public class Lexer {
         return rawInput;
     }
 
-    public List<Token> tokens() {
+    public LinkedList<Token> tokens() {
         String source = rawInput;
         int currentIndex = 0;
         int currentIndexFrom = 0;
 
         boolean okWaiting = true;
-        List<Token> tokens = new ArrayList<>();
+        LinkedList<Token> tokens = new LinkedList<>();
         Lexem prevLexem = null;
 
         String acc = "";
@@ -63,6 +61,8 @@ public class Lexer {
 
         Token token = new Token(prevLexem, acc);
         tokens.add(token);
+
+        tokens.add(new Token(Lexem.END_LINE, ""));
         return tokens;
     }
 }
