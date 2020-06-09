@@ -1,7 +1,18 @@
-r = w + 5;
-if(a < b){
-e = t * g;
+int = 8 + 2 * (3 + (3 + (3 * 4)))
+a = 5
+b = 0
+while a < 10 {
+a = a + 2
+b = b + 1
 }
-while(a < b){
-q = c + q;
+if a <= int {
+b = 70 / 2
 }
+list m
+m add 10
+m add 15
+m add 25
+m add b
+m remove 10
+m add 45
+m add 55
